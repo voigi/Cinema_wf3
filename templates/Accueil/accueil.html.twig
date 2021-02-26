@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+        <h2>Page Accueil </h2>
+        {{ form_start(recherche) }}
+            {{ form_row(recherche.recherche) }}
+        {{ form_end(recherche) }}
+    
+
+{% endblock %}

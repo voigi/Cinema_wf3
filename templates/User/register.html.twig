@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    
+
+
+<body>
+    <div class="container">
+            <fieldset>
+                <legend>Inscription</legend>
+                {{ form_start(formulaire) }}
+                {{ form_row(formulaire.prenom) }}
+                {{ form_row(formulaire.nom) }}
+                {{ form_row(formulaire.email) }}
+                {{ form_row(formulaire.password) }}
+                {{ form_row(formulaire.envoyer) }}
+                {{ form_end(formulaire) }}
+            </fieldset>
+    </div>
+</body>
+
+
+{% endblock %}

@@ -2,6 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -13,7 +18,27 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-    <body>
-        {% block body %}{% endblock %}
+    <body>    
+    <header>
+        <nav class="navbar navbar-expand-sm bg-light justify-content-end">
+            <img src="images/bootstrap-solid.svg" width="30" height="30" alt="">
+            {#
+            <span>Cinépédie</span>
+            #}
+            <div id="slogan">
+                Star-théque
+            </div>
+            {% if app.user %}
+            <a href="{{ path('home') }}" class="btn btn-primary">Acceuil</a>
+            <a href="{{ path('app_logout') }}" class="btn btn-danger">Se deconnecter</a>
+            {% else %}
+            <a href="{{ path('home') }}" class="btn btn-primary">Acceuil</a>
+            <a class="btn btn-warning" href="{{ path('app_login') }}">Se connecter</a></button>
+            <a class="btn btn-success" href="{{ path('register_user') }}">S'inscrire</a></button>
+            {% endif %}
+        </nav>
+    </header>
+        {% block body %}
+        {% endblock %}
     </body>
 </html>
