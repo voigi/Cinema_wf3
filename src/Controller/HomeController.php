@@ -23,15 +23,6 @@ class HomeController extends AbstractController{
             'userPrenom' => $prenom->getContent()
             ]);
         }
-
-
-    /**
-     * @Route ("/" , name="home")
-     */
-
-    public function accueil(request $request){
-        return $this->render('Accueil/accueil.html.twig');
-    }
         
 }
         

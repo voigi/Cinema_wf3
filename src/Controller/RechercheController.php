@@ -10,31 +10,26 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class RechercheController extends AbstractController{
 
-
     /**
      * @Route ("/" , name="home")
      */
 
     public function accueil(request $request){
-        $recherche = null;
-        $form = $this->createForm(RechercheType::class, $recherche);
+        $form = $this->createForm(RechercheType::class);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted()) {
-            
-            return $this->redirectToRoute('list_film');
+        if($form->isSubmitted()){
+            $searchTerm = $form->get('recherche')->getData();
+           return $this->redirectToRoute('list_film' , ['search' => $searchTerm]);
         }
 
         return $this->render('Accueil/accueil.html.twig' , ['recherche' => $form->createView()]);
     }
-
 
     /**
      * @Route ("/list" , name="list_film")
      */
 
     public function listFilm(){
-        
         return $this->render('Film/list.html.twig');
     }
         
