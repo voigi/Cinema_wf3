@@ -4,9 +4,95 @@
 {% block body %}
         
     
-        {{ form_start(recherche) }}
-            {{ form_row(recherche.recherche) }}
-        {{ form_end(recherche) }}
+        <div class="recherche_p">
+      <form class="form-inline my-2 my-lg-0">
+         <div class="recherche-barr">
+            <input class="recherche-input" type="search" placeholder="Recherche" aria-label="Search">
+            <a href="#" class="recherche-icone">
+               <i class="fas fa-search"></i>
+            </a>
+         </div>
+      </form>
+   </div>
+
+
+
+   <div class="container">
+      <div id="carousel" class="carousel slide border" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <img class="d-block w-100"
+                  src="https://images-na.ssl-images-amazon.com/images/I/51rGU8vKoAL._AC_SX450_.jpg"
+                  alt="V for Vendetta">
+               <div class="carousel-caption d-none d-sm-block">
+                  <h5>V for Vendetta</h5>
+                  <small>
+                     L'action se situe à Londres dans une société dystopique, où un combattant de la liberté se faisant
+                     appeler « V », cherche à mettre en place un changement politique et social en menant une violente
+                     vendetta personnelle contre le gouvernement fasciste en place.
+                  </small>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img class="d-block w-100"
+                  src="https://i.pinimg.com/originals/3e/e5/6f/3ee56f5a5a6ace79b7ebb796f5db6709.jpg" alt="coach carter">
+               <div class="carousel-caption d-none d-sm-block">
+                  <h5>Coach Carter</h5>
+                  <small>
+                     L'histoire vraie de Ken Carter, l'entraîneur de basket d'une équipe de lycée, qui devint célèbre en
+                     1999 après avoir renvoyé ses joueurs à leurs chères études, déclarant forfait deux matchs de suite
+                     alors que l'équipe était invaincue, parce que ces derniers n'avaient pas obtenu des résultats
+                     scolaires suffisants.
+                  </small>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <img class="d-block w-100"
+                  src="https://static.fnac-static.com/multimedia/Images/63/63/E1/70/7397731-1505-1505-1/tsp20180314152053/Gangs-Of-New-York-AFFICHE-CINEMA-ORIGINALE.jpg"
+                  alt="Gang of New York">
+               <div class="carousel-caption d-none d-sm-block">
+                  <h5>Gang of New York</h5>
+                  <div class="resume">
+                     <small>
+                        En 1846, le quartier de Five Points, un faubourg pauvre de New York, est le théâtre d'une guerre
+                        des gangs sanguinaire. Lorsque Bill le Boucher assassine le chef des Irlandais, père d'Amsterdam
+                        Vallon, il s'associe avec un policier véreux et prend le contrôle de la ville. Seize ans plus
+                        tard, Amsterdam retourne à New York pour venger la mort de son père, tuer Bill et mettre fin à
+                        son règne.
+                     </small>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+         </a>
+         <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+         </a>
+      </div>
+   </div>
+   <div class="container d-flex-inline justify-content-center">
+      <div class="titre">
+         <h1>Star téque</h1>
+      </div>
+   </div>
+
+   <div class="container">
+      <div class="clap d-flex-inline justify-content-start">
+         <img src="images/200px-Clap_cinema.svg.png" alt="clap de cinema" class="img-thumbnail">
+         <div class="para d-flex-inline justify-content-center border">
+            <p> site qui consiste a vous crée votre liste de film celon vos envie et vos gout, plus de -- films
+               repertorié
+               vous y
+               trouverais surement celui qui conviendra au mieux a votre soirée ciné </p>
+         </div>
+         <img src="images/200px-Clap_cinema_retourné.png" alt="clap de cinema" class="img-thumbnail clap2">
+      </div>
+   </div>
         
 
 {% endblock %}

@@ -1,3 +1,4 @@
+
 .navbar-brand{
     position: relative;
     right:67%;
@@ -17,6 +18,7 @@ img{
     position: relative;
     right:67%;
 }
+
 fieldset {
     border: 1px groove #ddd !important;
     padding: 0 1.4em 1.4em 1.4em !important;
@@ -27,4 +29,110 @@ legend{
 
      width:auto;
     
+}
+
+.carousel-item img {
+	width: auto;
+	height: 450px;
+	margin-top: 20px;
+}
+
+.para {
+	display: flex;
+	justify-content: center;
+	width: 300px;
+	text-align: center;
+	margin-left: 29%;
+}
+
+.para p {
+	border: dashed 5px #41403E;
+}
+
+.titre {
+	justify-content: center;
+	text-align: center;
+}
+
+.recherche_p {
+	background-color: #eeeeee;
+	border: 1px solid #dddddd;
+	padding: 10px 10px 10px 10px;
+}
+
+.recherche-barr {
+	margin-bottom: auto;
+	margin-top: auto;
+	background-color: #7c828e;
+}
+
+.recherche-input {
+	border: 0;
+	width: 0;
+	line-height: 37px;
+}
+
+.recherche-barr:hover>.recherche-input {
+	padding: 0 10px;
+	width: 450px;
+	transition: width 0.4s linear;
+}
+
+.recherche-icone:hover {
+	color: white;
+}
+
+.recherche-icone {
+	height: 40px;
+	width: 40px;
+	float: right;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	color: white;
+}
+
+.resume {
+	height: auto;
+}
+
+.carousel-caption {
+	background-color: rgb(73, 73, 73);
+	opacity: 0.9;
+	border-radius: 20px;
+	border: 1px solid skyblue;
+	box-shadow: 2px 2px black;
+}
+
+.clap img {
+	display: none;
+}
+
+.clap2 {
+	display: none;
+}
+
+ @media only screen and (min-width:991px) and (max-width:1199px){
+ 	.titre{
+		margin-right: 10%;
+	}
+}
+@media only screen and  (min-width:1200px){
+
+	.clap img{
+		display: flex;
+	}
+	.clap2{
+		float: right;
+		position: relative;
+		bottom: 413px;
+	}
+	.para{
+		position: relative;
+		bottom: 191px;
+		left: 7%;
+		height: 200px;
+	}
+
 }

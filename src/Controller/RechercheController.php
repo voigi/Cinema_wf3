@@ -57,14 +57,49 @@ class RechercheController extends AbstractController{
         
 
         /* Essai de manipulation tableau */
-        
 
-
-        
-
-
-        return $this->render('Film/list.html.twig' , ['content' => $tableau]);
+        return $this->render('Film/list.html.twig' , [
+            'content' => $tableau['results'][0],
+            'content1' => $tableau['results'][1],
+            'content2' => $tableau['results'][2]
+            ]);
         
     }
+
+    /**
+     * @Route ("/details" , name="details_film")
+     */
+
+    public function details(){
+
+        $httpClient = HttpClient::create();
+        $response = $httpClient->request(
+            'GET', 
+            'https://api.themoviedb.org/3/search/movie?api_key=b1a700d2ca02d17dc69cec6dd235dc6e&query=batman&language=fr'
+        );
+
+        
+
+        $statusCode = $response->getStatusCode();
+        /*echo $statusCode . "\n";*/
+
+        $contentType = $response->getHeaders()['content-type'][0];
+        /*echo $contentType . "\n";*/
+
+        $content = $response->getContent();
+        /*echo $content . "\n";*/
+
+
+        /* Convertir un objet en tableau */
+        $tableau = json_decode($content, true);
+
+
+        return $this->render('Film/details.html.twig' , [
+            'details' => $tableau['results'][0],
+            'details1' => $tableau['results'][1],
+            'details2' => $tableau['results'][2]
+        ]);
+    }
+
         
 }
