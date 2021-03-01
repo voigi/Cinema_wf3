@@ -5,29 +5,31 @@
 <div class="container mt-5">
         <div class="card">
             <div class="card-header text-center">
-                <a href="{{ path("details_film", {content}) }}">Film 1</a>
+                <a href="{{ path("details_film") }}">Film 1</a>
             </div>
+        {% for film in filmList %}
             <div class="card-body">
                 {#
                 <img src="https://image.tmdb.org/t/p/w200/{{content.poster_path}}" class="img-fluid"
                     alt="Responsive image">
                 #}
 
-
-                <p class="card-title"><strong>titre: </strong>{{content.title}}</p>
-                <p class="card-title"><strong>titre orignal: </strong>{{content.original_title}}</p>
-                <p class="card-title"><strong>date de sortie: </strong>{{content.release_date}}</p>
+            
+                <p class="card-title"><strong>titre: </strong>{{film.titre}}</p>
+                <p class="card-title"><strong>titre orignal: </strong>{{film.sortie}}</p>
+                <p class="card-title"><strong>date de sortie: </strong>{{film.genre}}</p>
                 <p class="card-title"><strong>genre: </strong>Action</p>
                 <p class="card-text"></p><strong>synopsis: </strong>
-                {{content.overview}}</p>
+                {{film.synopsis}}</p>
 
             </div>
+        {% endfor %}
         </div>
     </div>
     <div class="container mt-5">
         <div class="card">
             <div class="card-header text-center">
-                <a href="{{ path("details_film", {content1}) }}">Film 2</a>
+                <a href="{{ path("details_film") }}">Film 2</a>
             </div>
             <div class="card-body">
 
@@ -37,12 +39,12 @@
                 #}
 
 
-                <p class="card-title"><strong>titre: </strong>{{content1.title}}</p>
-                <p class="card-title"><strong>titre orignal: </strong>{{content1.original_title}}</p>
-                <p class="card-title"><strong>date de sortie: </strong>{{content1.release_date}}</p>
+                <p class="card-title"><strong>titre: </strong></p>
+                <p class="card-title"><strong>titre orignal: </strong></p>
+                <p class="card-title"><strong>date de sortie: </strong></p>
                 <p class="card-title"><strong>genre: </strong>Action</p>
                 <p class="card-text"></p><strong>synopsis: </strong>
-                {{content1.overview}}</p>
+                    </p>
 
             </div>
         </div>
@@ -60,12 +62,12 @@
                 #}
 
 
-                <p class="card-title"><strong>titre: </strong>{{content2.title}}</p>
-                <p class="card-title"><strong>titre orignal: </strong>{{content2.original_title}}</p>
-                <p class="card-title"><strong>date de sortie: </strong>{{content2.release_date}}</p>
+                <p class="card-title"><strong>titre: </strong></p>
+                <p class="card-title"><strong>titre orignal: </strong></p>
+                <p class="card-title"><strong>date de sortie: </strong></p>
                 <p class="card-title"><strong>genre: </strong>Action</p>
                 <p class="card-text"></p><strong>synopsis: </strong>
-                {{content2.overview}}</p>
+                </p>
 
             </div>
         </div>

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {{form_start(formulaire)}}
+        {{form_row(formulaire.titre)}}
+        {{form_row(formulaire.genre)}}
+        {{form_row(formulaire.sortie)}}
+        {{form_row(formulaire.synopsis)}}
+    {{form_end(formulaire)}}
+
+
+{% endblock %}
