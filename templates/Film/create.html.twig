@@ -2,6 +2,8 @@
 
 {% block body %}
 
+<div class="container"> 
+
     {{form_start(formulaire)}}
         {{form_row(formulaire.titre)}}
         {{form_row(formulaire.genre)}}
@@ -9,5 +11,6 @@
         {{form_row(formulaire.synopsis)}}
     {{form_end(formulaire)}}
 
+</div>
 
 {% endblock %}

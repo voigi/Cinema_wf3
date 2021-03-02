@@ -2,7 +2,7 @@
 
 {% block body %}
 
-<a href="{{ path('film_list') }}"> < Retour </a>
+<a href="{{ path('film_list') }}"> < Retour à la liste de films </a>
 
 <div class="container mt-5">
         <div class="card">
@@ -64,7 +64,11 @@
             {% for comment in film.commentaires %}
             <div class="card">
             <div class="card-header text-center">
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('commentaire' , {id:comment.id}) }}">{{comment.nom}}</a>
+            {% else %}
                 {{comment.nom}}
+            {% endif %}
             </div>
             <div class="card-body">
                 <p class="card-title"><blockquote class="blockquote">{{comment.contenu}}</blockquote>Note: {{comment.note}}/10</p>

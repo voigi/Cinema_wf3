@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\Type\UserType;
+use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class UserController extends AbstractController{
 
@@ -20,10 +22,11 @@ class UserController extends AbstractController{
      */
     private $entityManager;
 
-    public function __construct(UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager)
+    public function __construct(UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager, UserRepository $userRepository)
     {
         $this->encoder = $encoder;
         $this->entityManager = $entityManager;
+        $this->userRepository = $userRepository;
     }
 
     /**

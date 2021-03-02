@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2>{{user.email}}<h2>
+    <div>
+    {{form_start(deleteForm)}}
+        <input type="submit" value="Supprimer l'utilisateur">
+    {{form_end(deleteForm)}}
+    </div>
+
+{% endblock %}

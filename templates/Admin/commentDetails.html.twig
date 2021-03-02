@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="card">
+            <div class="card-header text-center">
+                {{commentaire.nom}}
+            </div>
+            <div class="card-body">
+                <p class="card-title"><blockquote class="blockquote">{{commentaire.contenu}}</blockquote>Note: {{commentaire.note}}/10</p>
+                 {{form_start(deleteForm)}}
+                    <input type="submit" value="Supprimer le commentaire">
+                 {{form_end(deleteForm)}}
+            </div>
+{% endblock %}

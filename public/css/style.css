@@ -5,19 +5,19 @@
 }
 
 span{
-    position: relative;
-    right:66%;
+   display: none;
 }
 button{
     margin-right: 10px;
 }
 #slogan{
-  position: relative;
-  right:39%;
+display: none;
 }
 .logo{
     position: relative;
-    right:67%;
+    right:4%;
+	width: 27%;
+    height: auto;
 }
 
 fieldset {
@@ -43,7 +43,7 @@ legend{
 	justify-content: center;
 	width: 300px;
 	text-align: center;
-	margin-left: 29%;
+	margin-right: 2%;
 }
 
 .para p {
@@ -113,11 +113,64 @@ legend{
 .clap2 {
 	display: none;
 }
-
- @media only screen and (min-width:991px) and (max-width:1199px){
- 	.titre{
-		margin-right: 10%;
+@media only screen and (min-width:375px) and (max-width:424px) {
+	.para{
+		position: relative;
+		left: 7%;
+		height: 200px;
 	}
+	.logo {
+        width: 27%;
+        height: auto;
+		position: relative;
+		right: 12%;
+    }
+    
+}
+
+@media only screen and (min-width:425px) and (max-width:767px) {
+	.para{
+		position: relative;
+		left: 10%;
+		height: 200px;
+	}
+	.logo {
+        width: 27%;
+        height: auto;
+		position: relative;
+		right: 21%;
+    }
+    
+}
+
+@media only screen and (min-width:768px) and (max-width:990px) {
+    .logo{
+		position: relative;
+		right:33%;
+	}
+	.para{
+		position: relative;
+		left: 28%;
+		height: 200px;
+	}
+}
+@media only screen and (width:1024px) {
+
+    .logo {
+        width: 24%;
+        height: auto;
+		position: relative;
+		right: 45%;
+    }
+	.para{
+		position: relative;
+		left: 33%;
+		height: 200px;
+	}
+}
+ @media only screen and (min-width:991px) and (max-width:1199px){
+ 	
+	
 }
 @media only screen and  (min-width:1200px){
 
@@ -132,8 +185,14 @@ legend{
 	.para{
 		position: relative;
 		bottom: 191px;
-		left: 7%;
+		left: 36%;
 		height: 200px;
+	}
+	.logo{
+		position: relative;
+		right:60%;
+		width: 10%;
+        height:auto;
 	}
 
 }
