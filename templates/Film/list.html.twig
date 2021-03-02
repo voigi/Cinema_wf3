@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+{% for film in filmList %}
 <div class="container mt-5">
         <div class="card">
             <div class="card-header text-center">
-                <a href="{{ path("details_film") }}">Film 1</a>
+                <a href="{{ path("film_details",{id:film.id}) }}">{{film.titre}}</a>
             </div>
-        {% for film in filmList %}
+        
             <div class="card-body">
                 {#
                 <img src="https://image.tmdb.org/t/p/w200/{{content.poster_path}}" class="img-fluid"
@@ -15,62 +15,20 @@
                 #}
 
             
-                <p class="card-title"><strong>titre: </strong>{{film.titre}}</p>
-                <p class="card-title"><strong>titre orignal: </strong>{{film.sortie}}</p>
-                <p class="card-title"><strong>date de sortie: </strong>{{film.genre}}</p>
-                <p class="card-title"><strong>genre: </strong>Action</p>
+                <p class="card-title"><strong>titre: </strong>{{film.titre}}</p
+                <p class="card-title"><strong>date de sortie: </strong>{{film.sortie}}</p>
+                <p class="card-title"><strong>genre: </strong>{{film.genre}}</p>
                 <p class="card-text"></p><strong>synopsis: </strong>
                 {{film.synopsis}}</p>
 
+                {% if is_granted('ROLE_ADMIN') %}
+                    
+                {% endif %}
+
             </div>
-        {% endfor %}
+      
         </div>
     </div>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header text-center">
-                <a href="{{ path("details_film") }}">Film 2</a>
-            </div>
-            <div class="card-body">
-
-                {#
-                <img src="https://image.tmdb.org/t/p/w200/{{content1.poster_path}}" class="img-fluid"
-                    alt="Responsive image">
-                #}
-
-
-                <p class="card-title"><strong>titre: </strong></p>
-                <p class="card-title"><strong>titre orignal: </strong></p>
-                <p class="card-title"><strong>date de sortie: </strong></p>
-                <p class="card-title"><strong>genre: </strong>Action</p>
-                <p class="card-text"></p><strong>synopsis: </strong>
-                    </p>
-
-            </div>
-        </div>
-    </div>
-    <div class="container mt-5">
-        <div class="card">
-            <div class="card-header text-center">
-                Film 3
-            </div>
-            <div class="card-body">
-
-                {#
-                <img src="https://image.tmdb.org/t/p/w200/{{content2.poster_path}}" class="img-fluid"
-                    alt="Responsive image">
-                #}
-
-
-                <p class="card-title"><strong>titre: </strong></p>
-                <p class="card-title"><strong>titre orignal: </strong></p>
-                <p class="card-title"><strong>date de sortie: </strong></p>
-                <p class="card-title"><strong>genre: </strong>Action</p>
-                <p class="card-text"></p><strong>synopsis: </strong>
-                </p>
-
-            </div>
-        </div>
-    </div>
+  {% endfor %}
 
 {% endblock %}

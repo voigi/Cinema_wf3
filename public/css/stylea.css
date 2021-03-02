@@ -1,0 +1,103 @@
+body {
+    background-color: #BBB7B8;
+}
+#slogan {
+    position: relative;
+    right: 32%;
+    font-size: 5vw
+}
+.logo{
+    width: auto;
+    height: 120%;
+}
+
+.navbar img {
+    position: absolute;
+    right: 80%;
+}
+
+.filmc {
+    margin-right: 34%;
+}
+
+.films {
+    margin-right: 16%;
+}
+
+@media only screen and (min-width:375px) and (max-width:424px) {
+    .filmc {
+        margin-right: 28%;
+    }
+    .films {
+        margin-right: 13%;
+    }
+}
+
+@media only screen and (min-width:425px) and (max-width:767px) {
+    .filmc {
+        margin-right: 24.5%;
+    }
+    .films {
+        margin-right: 11.5%;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:990px) {
+    .filmc {
+        margin-right: 14%;
+    }
+    .films {
+        margin-right: 6.5%;
+    }
+    #slogan {
+        position: relative;
+        right: 41%;
+    }
+    .logo {
+        width: auto;
+        height: 120%;
+    }
+}
+
+@media only screen and (min-width:991px) and (max-width:1199px) {
+    .filmc {
+        margin-right: 14%;
+    }
+    .films {
+        margin-right: 6.5%;
+    }
+    #slogan {
+        position: relative;
+        right: 41%;
+    }
+}
+
+@media only screen and (width:1024px) {
+    .filmc {
+        margin-right: 10%;
+    }
+    .films {
+        margin-right: 4.5%;
+    }
+    #slogan {
+        position: relative;
+        right: 41%;
+    }
+    .logo {
+        width: auto;
+        height: 110%;
+    }
+}
+
+@media only screen and (min-width:1200px) {
+    .filmc {
+        margin-right: 8.5%;
+    }
+    .films {
+        margin-right: 4%;
+    }
+    .logo {
+        width: auto;
+        height: 100%;
+    }
+}

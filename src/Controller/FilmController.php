@@ -3,9 +3,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Commentaires;
 use App\Entity\Film;
 use App\Form\DeleteForm;
 use App\Form\FilmType;
+use App\Form\Type\CommentaireType;
 use App\Repository\FilmRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,9 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-/**
- * @IsGranted("ROLE_USER")
- */
+
 class FilmController extends AbstractController
 {
 
@@ -40,10 +40,21 @@ class FilmController extends AbstractController
      */
     public function getDetails(Request $request, int $id){
         $film = $this->filmRepository->find($id);
-        if($film === null){
-            throw new NotFoundHttpException("film introuvable"); //renvoie un exception si le chien demandé n'as pas été trouvé.
+
+        $commentaire = new Commentaires();
+        $commentaire->setFilm($film);
+
+        $form = $this->createForm(CommentaireType::class, $commentaire);
+        $form->handleRequest($request);
+        if($form->isSubmitted() && $form->isValid()){
+            $this->entityManager->persist($commentaire);
+            $this->entityManager->flush();
+            return $this->redirectToRoute('film_details', ['id'=>$id]);
         }
-        //utilisation d'un formulaire 'vide' pour contrer la faille CSRF
+
+        if($film === null){
+            throw new NotFoundHttpException("film introuvable"); //renvoie un exception si le film demandé n'as pas été trouvé.
+        }
         $deleteForm = $this->createForm(DeleteForm::class);
         $deleteForm->handleRequest($request);
         if($deleteForm->isSubmitted() && $deleteForm->isValid()){
@@ -51,12 +62,18 @@ class FilmController extends AbstractController
             $this->entityManager->flush();
             return $this->redirectToRoute("film_list");
         }
-        return $this->render('Film/details.html.twig', ['film'=>$film, 'deleteForm' => $deleteForm->createView()]);
+        
+        return $this->render('Film/details.html.twig', [
+            'film'=>$film, 
+            'formulaire' => $form->createView(),
+            'deleteForm' => $deleteForm->createView()
+            ]);
 
     }
 
     /**
      * @Route("film/create", name="create_film")
+     * @IsGranted("ROLE_ADMIN")
      */
         public function create(Request $request){
             $film = new Film(); // l'entité qu'on va éditer

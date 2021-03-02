@@ -21,16 +21,19 @@
     <body>    
     <header>
         <nav class="navbar navbar-expand-sm bg-light justify-content-end">
-            <img src="images/bootstrap-solid.svg" width="30" height="30" alt="">
+            <img class="logo" src="images/logo.png" width="30" height="30" alt="">
             {#
             <span>Cinépédie</span>
             #}
             <div id="slogan">
                 Star-théque
             </div>
-            {% if app.user %}
+            {% if is_granted('ROLE_USER') %}
             <a href="{{ path('home') }}" class="btn btn-primary mr-2">Acceuil</a>
             <a href="{{ path('app_logout') }}" class="btn btn-danger mr-2">Se deconnecter</a>
+            {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{ path('admin') }}" class="btn btn-secondary mr-2">Admin</a>
+            {% endif %}
             {% else %}
             <a href="{{ path('home') }}" class="btn btn-primary mr-2">Acceuil</a>
             <a class="btn btn-warning mr-2" href="{{ path('app_login') }}">Se connecter</a></button>
