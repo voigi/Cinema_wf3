@@ -19,6 +19,20 @@ class FilmRepository extends ServiceEntityRepository
         parent::__construct($registry, Film::class);
     }
 
+    public function search(?string $searchTerm)
+    {
+        //$qb = $this->createQueryBuilder("film");
+        //$qb->andWhere($qb->expr()->like('film.titre', "'%$searchTerm%'"));
+        //return $qb->getQuery()->getResult();
+        return $this->createQueryBuilder('o')
+            ->select('o')
+            ->andWhere('o.titre LIKE :searchTerm')
+            ->setParameter('searchTerm', '%'. $searchTerm. '%')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
     // /**
     //  * @return Film[] Returns an array of Film objects
     //  */

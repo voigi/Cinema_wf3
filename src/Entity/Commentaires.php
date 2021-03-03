@@ -38,6 +38,11 @@ class Commentaires
      */
     private $film;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="commentaires")
+     */
+    private $user;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -87,6 +92,18 @@ class Commentaires
     public function setFilm(?Film $film): self
     {
         $this->film = $film;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

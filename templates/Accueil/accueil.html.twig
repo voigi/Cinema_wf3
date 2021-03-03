@@ -3,19 +3,6 @@
 
 {% block body %}
         
-    
-        <div class="recherche_p">
-      <form class="form-inline my-2 my-lg-0">
-         <div class="recherche-barr">
-            <input class="recherche-input" type="search" placeholder="Recherche" aria-label="Search">
-            <a href="#" class="recherche-icone">
-               <i class="fas fa-search"></i>
-            </a>
-         </div>
-      </form>
-   </div>
-
-
 
    <div class="container">
       <div id="carousel" class="carousel slide border" data-ride="carousel">
@@ -86,8 +73,11 @@
          <img src="images/200px-Clap_cinema.svg.png" alt="clap de cinema" class="img-thumbnail">
          <div class="para d-flex-inline justify-content-center border">
             <p> Accedez à notre liste de films pour en savoir plus sur ce qu'en pense
-             nos utilisateurs et donnez votre propre avis <br> 
+             nos utilisateurs, donnez votre propre avis et proposer un film. <br> 
              <a href="{{ path('film_list') }}" class="btn btn-primary mr-2">Liste de films</a>
+             {% if app.user %}
+             <a href="{{ path('create_film') }}" class="btn btn-primary mr-2">Proposer un film</a>
+             {% endif %}
              </p>
          </div>
          <img src="images/200px-Clap_cinema_retourné.png" alt="clap de cinema" class="img-thumbnail clap2">

@@ -160,16 +160,27 @@ legend{
         width: 24%;
         height: auto;
 		position: relative;
-		right: 45%;
+		right: 40%;
     }
 	.para{
 		position: relative;
 		left: 33%;
 		height: 200px;
 	}
+	#slogan{
+		display:flex;
+		position: relative;
+		right: 34%;
+		
+	}
 }
  @media only screen and (min-width:991px) and (max-width:1199px){
- 	
+	#slogan{
+		display:flex;
+		position: relative;
+		right: 23%;
+		font-size: 3vw;
+	}
 	
 }
 @media only screen and  (min-width:1200px){
@@ -190,9 +201,14 @@ legend{
 	}
 	.logo{
 		position: relative;
-		right:60%;
+		right:45%;
 		width: 10%;
         height:auto;
 	}
-
+    #slogan{
+		display:flex;
+		position: relative;
+		right: 28%;
+		font-size: 3vw;
+	}
 }

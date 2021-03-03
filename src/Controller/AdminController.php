@@ -4,11 +4,13 @@
 namespace App\Controller;
 
 use App\Form\DeleteForm;
+use App\Form\Type\RechercheType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use App\Repository\UserRepository;
 use App\Repository\CommentairesRepository;
+use App\Repository\FilmRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -26,15 +28,22 @@ class AdminController extends AbstractController{
     private $commentairesRepository;
 
     /**
+     * @var FilmRepository;
+     */
+    private $filmRepository;
+
+    /**
      * @var EntityManagerInterface
      */
     private $entityManager;
 
-    public function __construct(UserRepository $userRepository, EntityManagerInterface $entityManager,  CommentairesRepository $commentairesRepository)
+    public function __construct(FilmRepository $filmRepository, UserRepository $userRepository, EntityManagerInterface $entityManager,  CommentairesRepository $commentairesRepository)
     {
         $this->commentairesRepository = $commentairesRepository;
         $this->userRepository = $userRepository;
         $this->entityManager = $entityManager;
+        $this->filmRepository = $filmRepository;
+
     }
 
     /**
@@ -104,6 +113,24 @@ class AdminController extends AbstractController{
 
     }
 
+    /**
+     * @Route("/newFilm" , name="new_film")
+     * @IsGranted("ROLE_ADMIN")
+     */
+
+    public function newFilm(Request $request){
+            $form = $this->createForm(RechercheType::class);
+            $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $data=$form->getData();//récupére les donnée dans la barre de recherche
+            $list = $this->filmRepository->search($data['recherche']);
+        }
+        else{$list = $this->filmRepository->findAll();}
+            return $this->render('Admin/listFilm.html.twig', [
+                'list' => $list,
+                'form' => $form->createView()
+                ]);
+        }
     }
 
 

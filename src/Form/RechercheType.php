@@ -12,7 +12,7 @@ class RechercheType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options){
         $builder->add('recherche', SearchType::class, ['label' => 'Recherche']);
         $builder->add('envoyer', SubmitType::class, ['label' => 'Envoyer']);
-
+        
     }
 }
 

@@ -8,6 +8,9 @@ use App\Entity\Film;
 use App\Form\DeleteForm;
 use App\Form\FilmType;
 use App\Form\Type\CommentaireType;
+use App\Form\Type\RechercheType;
+use App\Form\ValideFilmType;
+use App\Repository\CommentairesRepository;
 use App\Repository\FilmRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,10 +32,16 @@ class FilmController extends AbstractController
      */
     private $filmRepository;
 
-    public function __construct(EntityManagerInterface $entityManager, FilmRepository $filmRepository)
+    /**
+     * @var CommentairesRepository;
+     */
+    private $commentairesRepository;
+
+    public function __construct(CommentairesRepository $commentairesRepository , EntityManagerInterface $entityManager, FilmRepository $filmRepository)
     {
         $this->entityManager = $entityManager;
         $this->filmRepository = $filmRepository;
+        $this->commentairesRepository = $commentairesRepository;
     }
 
     /**
@@ -40,16 +49,20 @@ class FilmController extends AbstractController
      */
     public function getDetails(Request $request, int $id){
         $film = $this->filmRepository->find($id);
+        $user = $this->getUser();
 
         $commentaire = new Commentaires();
         $commentaire->setFilm($film);
+        $commentaire->setUser($user);
 
         $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $this->entityManager->persist($commentaire);
             $this->entityManager->flush();
-            return $this->redirectToRoute('film_details', ['id'=>$id]);
+            return $this->redirectToRoute('film_details', [
+                'id' => $id,
+                ]);
         }
 
         if($film === null){
@@ -62,18 +75,28 @@ class FilmController extends AbstractController
             $this->entityManager->flush();
             return $this->redirectToRoute("film_list");
         }
+        $publie = $this->createForm(ValideFilmType::class);
+        $publie->handleRequest($request);
+        if($publie->isSubmitted()){
+            $data=$publie->getData();
+            $film->setPublie($data['publie']);
+            
+            $this->entityManager->flush();
+            return $this->redirectToRoute("new_film");
+        }
         
         return $this->render('Film/details.html.twig', [
-            'film'=>$film, 
+            'film' => $film, 
             'formulaire' => $form->createView(),
-            'deleteForm' => $deleteForm->createView()
+            'deleteForm' => $deleteForm->createView(),
+            'publie' =>$publie->createView(),
+            'commentaire' => $commentaire
             ]);
 
     }
 
     /**
      * @Route("film/create", name="create_film")
-     * @IsGranted("ROLE_ADMIN")
      */
         public function create(Request $request){
             $film = new Film(); // l'entité qu'on va éditer
@@ -92,8 +115,20 @@ class FilmController extends AbstractController
      * @Route("/film/", name="film_list")
      */
         public function getList(Request $request){
-            $filmList = $this->filmRepository->findAll();
-            return $this->render('Film/list.html.twig', ['filmList' => $filmList]);
+            $form = $this->createForm(RechercheType::class);
+            $form->handleRequest($request);
+        if($form->isSubmitted()){
+            $data=$form->getData();//récupére les donnée dans la barre de recherche
+            $list = $this->filmRepository->search($data['recherche']);
+        }
+        else{$list = $this->filmRepository->findAll();}
+            return $this->render('Film/list.html.twig', [
+                'list' => $list,
+                'form' => $form->createView()
+                ]);
         }
 
+
+    
+    
 }

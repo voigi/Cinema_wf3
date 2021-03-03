@@ -30,6 +30,10 @@
                     {{ form_start(deleteForm) }}
                         <input type="submit" value="Supprimer le film">
                     {{ form_end(deleteForm) }}
+                    <br>
+                    {{form_start(publie)}}
+                        {{form_row(publie.publie)}}
+                    {{form_end(publie)}}
                 {% endif %}
                  
             </div>
@@ -65,9 +69,11 @@
             <div class="card">
             <div class="card-header text-center">
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('commentaire' , {id:comment.id}) }}">{{comment.nom}}</a>
+                <a href="{{ path('commentaire' , {id:comment.id}) }}">
+                {{comment.user.email}}
+                </a>
             {% else %}
-                {{comment.nom}}
+                {{comment.user.email}}
             {% endif %}
             </div>
             <div class="card-body">

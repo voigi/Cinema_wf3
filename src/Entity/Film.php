@@ -44,6 +44,11 @@ class Film
      */
     private $commentaires;
 
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $publie;
+
 
     public function __construct()
     {
@@ -131,6 +136,18 @@ class Film
                 $commentaire->setFilm(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getPublie(): ?bool
+    {
+        return $this->publie;
+    }
+
+    public function setPublie(?bool $publie): self
+    {
+        $this->publie = $publie;
 
         return $this;
     }
