@@ -3,7 +3,7 @@
 {% block body %}
 <div class="card">
             <div class="card-header text-center">
-                {{commentaire.nom}}
+                {{commentaire.user.email}}
             </div>
             <div class="card-body">
                 <p class="card-title"><blockquote class="blockquote">{{commentaire.contenu}}</blockquote>Note: {{commentaire.note}}/10</p>

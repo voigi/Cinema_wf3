@@ -13,7 +13,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 class CommentaireType extends AbstractType{
 
     public function buildForm(FormBuilderInterface $builder, array $options){
-        $builder->add('nom', TextType::class, ['label' => 'Nom : ']);
         $builder->add('contenu', TextareaType::class, ['label' => 'Commentaire']);
         $builder->add('note', ChoiceType::class, [
             'choices'  => [

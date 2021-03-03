@@ -50,6 +50,7 @@ class FilmController extends AbstractController
     public function getDetails(Request $request, int $id){
         $film = $this->filmRepository->find($id);
         $user = $this->getUser();
+        
 
         $commentaire = new Commentaires();
         $commentaire->setFilm($film);
@@ -84,13 +85,15 @@ class FilmController extends AbstractController
             $this->entityManager->flush();
             return $this->redirectToRoute("new_film");
         }
+
         
         return $this->render('Film/details.html.twig', [
             'film' => $film, 
             'formulaire' => $form->createView(),
             'deleteForm' => $deleteForm->createView(),
-            'publie' =>$publie->createView(),
-            'commentaire' => $commentaire
+            'publie' => $publie->createView(),
+            'commentaire' => $commentaire,
+            'user' => $user
             ]);
 
     }

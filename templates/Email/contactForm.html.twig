@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for messages in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ messages }}
+        </div>
+    {% endfor %}
+    
+
+    {{ form_start(form) }}
+        {{form_row(form.demand)}}
+        {{form_row(form.contenu)}}
+        <input type="submit" class="btn btn-block btn-primary" value="envoyer">
+    {{ form_end(form) }}
+{% endblock %}
