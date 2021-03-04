@@ -1,9 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{form_start(form)}}
-    {{form_row(form.recherche)}}
-{{form_end(form)}}
+<div class="container mt-2">
+    <fieldset>
+        {{form_start(form)}}
+                {{form_row(form.recherche)}}
+        {{form_end(form)}}
+    </fieldset>
+</div>
 {% for film in list %}
     {% if film.publie == false or film.publie == null %}
 <div class="container mt-5">

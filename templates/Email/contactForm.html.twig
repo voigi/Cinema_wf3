@@ -6,11 +6,15 @@
             {{ messages }}
         </div>
     {% endfor %}
-    
 
-    {{ form_start(form) }}
-        {{form_row(form.demand)}}
-        {{form_row(form.contenu)}}
-        <input type="submit" class="btn btn-block btn-primary" value="envoyer">
-    {{ form_end(form) }}
+<div class="container mt-2">
+    <fieldset>
+        {{ form_start(form) }}
+            <legend>Contactez nous</legend>
+            {{form_row(form.demand)}}
+            {{form_row(form.contenu)}}
+            <input type="submit" class="btn btn-block btn-primary" value="envoyer">
+        {{ form_end(form) }}
+    </fieldset>
+</div>
 {% endblock %}

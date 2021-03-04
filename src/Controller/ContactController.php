@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class ContactController extends AbstractController
@@ -17,6 +18,7 @@ class ContactController extends AbstractController
     
     /**
      * @Route("/contact", name="contact_me")
+     * @IsGranted("ROLE_USER")
      */
     public function ContactMe(Request $request, Mailer $mailer)
     {

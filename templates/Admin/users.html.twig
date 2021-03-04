@@ -2,10 +2,13 @@
 
 {% block body %}
 
+<div class="listUser">
 {% for utilisateur in userList %}
-
-    <a href="{{ path('user_details' , {id:utilisateur.id}) }}">{{utilisateur.email}}</a><br>
+    <div>
+    <a href="{{ path('user_details' , {id:utilisateur.id}) }}">{{utilisateur.email}}</a>
+    </div>
 
 {% endfor %}
+</div>
 
 {% endblock %}

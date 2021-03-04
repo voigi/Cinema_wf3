@@ -1,0 +1,141 @@
+footer{
+    background-color: #696969;
+}
+
+/*.orderculfoo{
+    display: flex;
+    flex-direction: column;
+}*/
+
+
+#pucecul{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#pucejus{
+    display: flex;
+    align-items: center;
+}
+
+.orderrowfoo{
+    
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    
+}
+
+.icsize{
+    font-size: 2.8rem;
+}
+
+#newsbutcolor{
+    background-color: rgb(0, 132, 255);
+    font-size: 1rem;
+    color: white;
+    width: 100px;
+    height: 36px;
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 25px;
+    margin-top: 20px;
+}
+
+.fooul{
+    text-decoration:none; 
+}
+
+
+.newsspaceblock{
+    display: flex;
+    flex-direction: column;
+}
+
+#newscenter{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 180px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#newssubcenter{
+    display: flex;
+    justify-content: center;
+}
+
+.espacemp{
+    margin-top: 10px;
+}
+
+
+#rnspace{
+    width: 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#spacesns{
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.snsize{
+    width: 50px;
+    height: 50px;
+}
+
+.orderculf{
+    display: flex;
+    flex-direction: column;
+}
+
+.orderrowf{
+    display: flex;
+    flex-direction: row;
+    height: 300px;
+}
+
+#eleproduit{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#mail{
+    border: solid;
+    border-color: rgb(0, 132, 255);
+}
+
+span{
+    text-decoration: underline;
+}
+
+ul{
+    list-style: none;
+    
+}
+
+#font_form{
+    font-weight: bolder;
+    font-size: 1.6rem;
+}
+
+.whitext{
+    color: white;
+    text-decoration:none; 
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
+@media only screen and (min-width:1200px){
+    .orderrowfoo{
+        position:relative;
+        left:15%;
+    }
+}

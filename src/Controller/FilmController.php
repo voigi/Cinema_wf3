@@ -100,6 +100,7 @@ class FilmController extends AbstractController
 
     /**
      * @Route("film/create", name="create_film")
+     * @IsGranted("ROLE_USER")
      */
         public function create(Request $request){
             $film = new Film(); // l'entité qu'on va éditer

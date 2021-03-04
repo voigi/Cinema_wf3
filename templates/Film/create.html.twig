@@ -2,14 +2,17 @@
 
 {% block body %}
 
-<div class="container"> 
-
+<div class="container mt-2"> 
+<fieldset>
     {{form_start(formulaire)}}
-        {{form_row(formulaire.titre)}}
-        {{form_row(formulaire.genre)}}
-        {{form_row(formulaire.sortie)}}
-        {{form_row(formulaire.synopsis)}}
+            <legend>Ajouter un film</legend>
+            {{form_row(formulaire.titre)}}
+            {{form_row(formulaire.genre)}}
+            {{form_row(formulaire.sortie)}}
+            {{form_row(formulaire.synopsis)}}
     {{form_end(formulaire)}}
+</fieldset>
+
 
 </div>
 

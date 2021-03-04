@@ -1,20 +1,8 @@
 body {
     background-color: #BBB7B8;
 }
-#slogan {
-    position: relative;
-    right: 32%;
-    font-size: 5vw
-}
-.logo{
-    width: auto;
-    height: 120%;
-}
 
-.navbar img {
-    position: absolute;
-    right: 80%;
-}
+
 
 .filmc {
     margin-right: 34%;
@@ -49,14 +37,6 @@ body {
     .films {
         margin-right: 6.5%;
     }
-    #slogan {
-        position: relative;
-        right: 41%;
-    }
-    .logo {
-        width: auto;
-        height: 120%;
-    }
 }
 
 @media only screen and (min-width:991px) and (max-width:1199px) {
@@ -66,11 +46,6 @@ body {
     .films {
         margin-right: 6.5%;
     }
-    #slogan {
-        position: relative;
-        right: 41%;
-    }
-}
 
 @media only screen and (width:1024px) {
     .filmc {
@@ -78,14 +53,6 @@ body {
     }
     .films {
         margin-right: 4.5%;
-    }
-    #slogan {
-        position: relative;
-        right: 41%;
-    }
-    .logo {
-        width: auto;
-        height: 110%;
     }
 }
 
@@ -96,8 +63,5 @@ body {
     .films {
         margin-right: 4%;
     }
-    .logo {
-        width: auto;
-        height: 100%;
-    }
+}
 }

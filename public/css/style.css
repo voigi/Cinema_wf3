@@ -1,4 +1,29 @@
 
+body{
+
+	
+	/* The image used */
+	background-image: url("../images/cinema.jpg");
+
+	/* Set a specific height */
+	min-height: 500px; 
+  
+	/* Create the parallax scrolling effect */
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+  
+}
+
+@font-face {
+	font-family: "DeathStar";
+	src: url("../Police/DeathStar-VmWB.woff") format("woff");
+   }
+
+
+
 .navbar-brand{
     position: relative;
     right:67%;
@@ -25,6 +50,11 @@ fieldset {
     padding: 0 1.4em 1.4em 1.4em !important;
     margin: 0 0 1.5em 0 !important;
     box-shadow:  0px 0px 0px 0px #000;
+	background-color: rgb(73, 73, 73);
+	opacity: 0.9;
+	border-radius: 20px;
+	border: 1px solid skyblue;
+	color: white;
 }
 legend{
 
@@ -44,15 +74,22 @@ legend{
 	width: 300px;
 	text-align: center;
 	margin-right: 2%;
+	background-color: rgb(73, 73, 73);
+	opacity: 0.9;
+	border-radius: 20px;
+	border: 1px solid skyblue;
 }
 
 .para p {
-	border: dashed 5px #41403E;
+	color: white;
+
 }
 
 .titre {
 	justify-content: center;
 	text-align: center;
+	color: white;
+	font-family:"DeathStar";
 }
 
 .recherche_p {
@@ -113,6 +150,27 @@ legend{
 .clap2 {
 	display: none;
 }
+
+.listUser{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	box-shadow:  0px 0px 0px 0px #000;
+	background-color: rgb(73, 73, 73);
+	opacity: 0.9;
+	border-radius: 20px;
+	border: 1px solid skyblue;
+}
+
+.retour{
+	box-shadow:  0px 0px 0px 0px #000;
+	background-color: rgb(73, 73, 73);
+	opacity: 0.9;
+	border-radius: 20px;
+	border: 1px solid skyblue;
+	display:inline;
+}
+
 @media only screen and (min-width:375px) and (max-width:424px) {
 	.para{
 		position: relative;
@@ -160,7 +218,7 @@ legend{
         width: 24%;
         height: auto;
 		position: relative;
-		right: 40%;
+		right: 30%;
     }
 	.para{
 		position: relative;
@@ -171,6 +229,7 @@ legend{
 		display:flex;
 		position: relative;
 		right: 34%;
+		font-family: "DeathStar";
 		
 	}
 }
@@ -210,5 +269,6 @@ legend{
 		position: relative;
 		right: 28%;
 		font-size: 3vw;
+		font-family: "DeathStar";
 	}
 }

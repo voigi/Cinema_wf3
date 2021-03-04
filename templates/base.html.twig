@@ -26,7 +26,7 @@
             <span>Cinépédie</span>
             #}
             <div id="slogan">
-                Star-théque
+                STAR-THEQUE
             </div>
             {% if is_granted('ROLE_USER') %}
             <a href="{{ path('home') }}" class="btn btn-primary mr-2">Accueil</a>
@@ -43,6 +43,10 @@
     </header>
     
         {% block body %}
+
+        {% endblock %}
+
+        {% block footer %}
 
         {% endblock %}
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

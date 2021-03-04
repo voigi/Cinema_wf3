@@ -1,6 +1,10 @@
 {% extends 'base.html.twig' %}
 
 
+{% block stylesheets %}
+         <link rel="stylesheet" href="../css/footer.css">
+{% endblock %}
+
 {% block body %}
         
 
@@ -64,13 +68,13 @@
    </div>
    <div class="container d-flex-inline justify-content-center">
       <div class="titre">
-         <h1>Star téque</h1>
+         <h1>STAR-THEQUE</h1>
       </div>
    </div>
 
    <div class="container">
       <div class="clap d-flex-inline justify-content-start">
-         <img src="images/200px-Clap_cinema.svg.png" alt="clap de cinema" class="img-thumbnail">
+         <img src="images/200px-Clap_cinema.svg.png" alt="clap de cinema">
          <div class="para d-flex-inline justify-content-center border">
             <p> Accedez à notre liste de films pour en savoir plus sur ce qu'en pense
              nos utilisateurs, donnez votre propre avis et proposer un film. <br> 
@@ -80,9 +84,51 @@
              {% endif %}
              </p>
          </div>
-         <img src="images/200px-Clap_cinema_retourné.png" alt="clap de cinema" class="img-thumbnail clap2">
+         <img src="images/200px-Clap_cinema_retourné.png" alt="clap de cinema" class="clap2">
       </div>
    </div>
         
 
+{% endblock %}
+{% block footer %}
+   <footer class="orderculfoo footerContainer">
+            <div class="orderrowfoo">
+
+                <div id="pucejus">
+                    <ul id="pucecul">
+                        <li ><a class="fooul whitext" href="#"> NOTRE SITE</a></li>
+                        <li ><a class="fooul whitext" href="#"> MENTIONS LEGALES </a></li>
+                    </ul>
+                </div>
+
+              
+               {% if app.user %}
+                  <div id="newscenter">
+                    <a href="{{ path("contact_me")}}" class="whitext">CONTACTEZ NOUS</p>
+                  </div>
+               {% else %}
+                  <div id="newscenter">
+                     <p class="whitext">NEWSLETTER</p>
+                     
+                     <form method="POST" action="newsletter.php" class="newsspaceblock" name="follownews">
+                           <input type="email" id="mail"  placeholder="adresse@mail.com" required > 
+                           <div id="newssubcenter">
+                              <input type="submit" id="newsbutcolor" name="mail" value="envoyer">
+                           </div>
+                     </form>
+                  </div>
+               {% endif %}
+                
+
+                <div id="rnspace">
+                    <h4 class="whitext">rejoingez-nous</h4>
+                    <div id="spacesns">
+                        <a href="https://www.facebook.com/"><img class="snsize" src="https://cdn2.iconfinder.com/data/icons/social-media-applications/64/social_media_applications_1-facebook-512.png" alt="facebook icone"></a>
+                        <a href="https://www.instagram.com/?hl=fr"><img class="snsize" src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png" alt="instagram icone"></a>
+                        <a href="https://twitter.com"><img class="snsize" src="https://cdn1.iconfinder.com/data/icons/logotypes/32/twitter-512.png" alt="twitter icone"></a>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
 {% endblock %}
